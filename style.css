@@ -1,3 +1,52 @@
-h1 {
-  color: red;
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; 이렇게 하면 inline 속성때문에 한줄에 표시되는 엘레멘트가 있다. 2개 해보고 비교해봐라*/
+}
+
+nav {
+  flex: 1 50px; /*flex에 그냥 1만 주면 사이즈가 변하지 않는다. 반드시 뒤의 minimumb size를 줘야한다.*/
+  background: #5995da;
+}
+
+header {
+  /* flex: 3; */
+  background: #b2d6ff;
+}
+
+main {
+  flex: 6 300px;
+  padding: 1rem;
+  background: #eaedf0;
+}
+
+#signup {
+  background: #d6e9fe;
+}
+
+#feature-1 {
+  background: #f5cf8e;
+}
+
+#feature-2 {
+  background: #f09a9d;
+}
+
+#feature-3 {
+  background: #c8c6fa;
+}
+
+header, section {
+  flex: 3 150px;
+}
+
+header, section, nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
