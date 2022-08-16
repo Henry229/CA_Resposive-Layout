@@ -1,52 +1,99 @@
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
 }
 
-article {
-  display: flex;
-  flex-direction: column;
-  /* flex-wrap: wrap; 이렇게 하면 inline 속성때문에 한줄에 표시되는 엘레멘트가 있다. 2개 해보고 비교해봐라*/
+.article {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+}
+.nav {
+    flex-basis: 100%;
+    min-height: 50px;
+    /* flex: 1 50px; */
+    background: #5995da;
 }
 
-nav {
-  flex: 1 50px; /*flex에 그냥 1만 주면 사이즈가 변하지 않는다. 반드시 뒤의 minimumb size를 줘야한다.*/
-  background: #5995da;
-}
-
-header {
-  /* flex: 3; */
-  background: #b2d6ff;
+.header {
+    background: #b2d6ff;
 }
 
 main {
-  flex: 6 300px;
-  padding: 1rem;
-  background: #eaedf0;
+    /* flex: 6 300px; */
+    padding: 1rem;
+    background: #eaedf0;
 }
 
 #signup {
-  background: #d6e9fe;
+    background: #d6e9fe;
 }
 
 #feature-1 {
-  background: #f5cf8e;
+    background: #f5cf8e;
 }
 
 #feature-2 {
-  background: #f09a9d;
+    background: #f09a9d;
 }
 
 #feature-3 {
-  background: #c8c6fa;
+    background: #c8c6fa;
 }
 
-header, section {
-  flex: 3 150px;
+.header, .feature {
+    min-height: 200px;
+    flex-basis: 100%;
+    /* flex: 1 1 100%; */
+    /* flex: 50vw; */
 }
 
-header, section, nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.header, .feature, .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media screen and (min-width: 500px) and (max-width: 899px) {
+    .article {
+      flex-flow: row wrap;
+    }
+    .nav {
+        flex-basis: 100%;
+        min-height: 50px;
+    }
+    .feature {
+        flex: 1 1 50%;
+        /* height: 200px;  */
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .article {
+        flex-flow: row wrap;
+    }
+    .nav {
+        flex-basis: 100%;
+        min-height: 50px;
+    }
+    .feature {
+        flex: 1 1 33%;
+        /* flex: calc(100vw / 3); */
+        min-height: calc(100vw / 3 * 1.25);
+    }
+    #signup {
+        order: 1;
+        min-height: auto;
+        height: 150px; 
+    }
+    .header {
+        flex: 100vw;
+        height: 25vw;
+    }
+    main {
+        order: 2;
+    }
 }
